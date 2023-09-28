@@ -16,7 +16,7 @@ public class History {
 	}
 
 	public Action back() {
-		if(!actionStack.isEmpty())
+		if(!actionStack.empty())
 			return actionStack.pop();
 		else
 			return null;

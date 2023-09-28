@@ -13,8 +13,8 @@ public class Writer {
 		return this.text;
 	}
 
-	public String shrinkText(int itemsToShrink) {
-		this.text = this.text.substring(0, this.text.length() - itemsToShrink);
+	public String shrinkText(int shrinkLength) {
+		this.text = this.text.substring(0, this.text.length() - shrinkLength);
 		return this.text;
 	}
 

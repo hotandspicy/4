@@ -5,17 +5,19 @@ public class TextEditor {
 	public static void main(String[] args) {
 		
 		//final String CLEARSCREEN = "\033[H\033[2J";
-		final String PROMPT = "> ";
+		final String COMMAND = "c> ";
+		final String PROMPT =" > ";
 		String document = new String();
 		History history = new History();
 		Writer writer = new Writer();
 		Scanner scan = new Scanner(System.in);
 		String menu = new String();
 		while(true) {
-			System.out.print(PROMPT);
+			System.out.print(COMMAND);
 			menu = scan.next();
 			switch(menu) {
 				case "w":
+					System.out.print(PROMPT);
 					Scanner writeScanner = new Scanner(System.in);
 					document = writer.writeText(writeScanner.nextLine());
 					history.add(writer.getLastAction());
