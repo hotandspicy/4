@@ -16,10 +16,14 @@ public class TextEditor {
 			menu = scan.next();
 			switch(menu) {
 				case "w":
-					document = writer.writeText();
+					Scanner writeScanner = new Scanner(System.in);
+					document = writer.writeText(writeScanner.nextLine());
 					history.add(writer.getLastAction());
 					System.out.println(document);
 					break;
+				case "u":
+					document = Undo.undo(writer, history.back());
+					System.out.println(document);
 				case "h":
 					System.out.println(history.getHistoryOverview());
 					break;
