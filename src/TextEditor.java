@@ -7,6 +7,7 @@ public class TextEditor {
 		//final String CLEARSCREEN = "\033[H\033[2J";
 		final String COMMAND = String.format("%-10s %1s", "command", "> ");
 		final String WRITE = String.format("%-10s %1s", "write", "> ");
+		final String HISTORY = String.format("%-10s %1s", "history", "> ");
 		final String PROMPT= String.format("%-10s %1s", "", "> ");
 		String document = new String();
 		History history = new History();
@@ -32,7 +33,10 @@ public class TextEditor {
 					
 					break;
 				case "h":
-					System.out.println(history.getHistoryOverview());
+					if(!history.getHistoryOverview().isEmpty())
+						System.out.println(HISTORY + "\n" + history.getHistoryOverview());
+					else
+						System.out.println(HISTORY + "No history.");
 					break;
 				case "q":
 					scan.close();

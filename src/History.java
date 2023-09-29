@@ -5,17 +5,12 @@ import action.*;
 // Class will be used by class Editor
 public class History {
 
-	Stack<Action> actionStack;
+	Stack<Action> actionStack = new Stack<Action>();
 
-	public History() {
-		this.actionStack = new Stack<Action>();
-	}
-
-	// Actions are defined in class Action.	
 	public void add(Action action) {
 		this.actionStack.push(action);
 	}
-	
+
 	// The action instance returned will be checked by the class Undo 
 	public Action back() {
 		if(!actionStack.empty())
@@ -31,7 +26,11 @@ public class History {
 
 		// build overview
 		while(hisIterator.hasNext()) {
-			buffer.append(String.format("%3d. %s", i, hisIterator.next().toString()));
+			buffer.append(String.format(
+				"%11s %3d. %s",
+				"",
+				i, 
+				hisIterator.next().toString()));
 			i++;
 		}
 		return buffer.toString();
