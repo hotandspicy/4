@@ -1,5 +1,6 @@
 package action;
 
+// Hold information of appendance/concatination of text
 public class Appendance extends Action {
 
     private String actionType = "append";
